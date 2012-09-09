@@ -1,0 +1,43 @@
+#header{
+	background-color: #EEE;
+}
+#header div.center{
+	background-color: #2E2D27;		
+	min-height: 3px;
+}
+#header div.left ,#header div.right{
+	background-color: #EEE;	
+	min-height: 3px;
+}
+
+.minimal-length, .seperator{
+	min-height: 1px;
+	height: 1px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+.minimal-length .row-fluid [class*="span"] {
+	min-height: 1px;
+}
+
+.seperator{
+	padding: 0px;
+	display: block; 
+    border: 0; 
+	border-top: 1px solid #ccc;
+    padding: 0;
+}
+
+#banner {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#footer{
+	color: #AAA;
+	font-size: 0.7em;
+	text-align: center;
+}
+
