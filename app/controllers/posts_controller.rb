@@ -1,4 +1,18 @@
 class PostsController < ApplicationController
+
+	# PUT /posts/1/add_comment
+	def add_comment
+		@post = Post.find(params[:id])
+		#debugger
+		comment = Comment.new(author: params[:comment][:author], content: params[:comment][:content])
+		comment.post = @post
+		comment.save
+		
+		respond_to do |format|
+			format.json {render json: comment.to_json}			
+		end
+	end
+	
   # GET /posts
   # GET /posts.json
   def index

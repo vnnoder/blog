@@ -1,25 +1,26 @@
 <h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+	<div class='post'>
+		<h4><%= link_to post.title, post %></h4>
+		<div class='post-content'>
+			<%= truncate post.content, :length => 1000, :separator => ' ' %>
+		</div>
+		<div class='post-links margin-top-20'>
+			<div class='pull-left'>
+				<%= link_to 'Read more', post , :class => 'btn btn-primary'%>
+			</div>
+			<div class='pull-right'>
+				<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
+				<%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-primary' %>
+			</div>			
+		</div>
+		<div class='new-post'>				
+				<%= link_to 'New Post', new_post_path, :class => 'btn btn-primary' %>
+			</div>
+	</div>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Post', new_post_path %>
+
+
