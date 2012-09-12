@@ -147,11 +147,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails (= 1.4.0)
   jquery-rails
-  linecache19 (= 0.5.13)
   rails (= 3.2.1)
   rspec
   rspec-rails
-  ruby-debug-base19 (= 0.11.26)
   ruby-debug19
   sass-rails (~> 3.2.3)
   sqlite3
