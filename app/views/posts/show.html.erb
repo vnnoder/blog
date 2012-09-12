@@ -43,7 +43,7 @@
 <div id="prev">
 	<span class="label">Comments</span>
 		<div id='prev_inner'>
-			<% Comment.order('created_at DESC').each do |comment| %>
+			<% Comment.where(post_id: @post).order('created_at DESC').each do |comment| %>
 				<div class='comment margin-top-20 margin-bottom-20'>
 					<span><%= comment.created_at %></span>
 					<br />
