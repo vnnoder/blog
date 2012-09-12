@@ -1,18 +1,18 @@
 <h1>Listing posts</h1>
 
 <% @posts.each do |post| %>
-	<div class='post'>
+	<div class='post margin-bottom-20 margin-top-20'>
 		<h4><%= link_to post.title, post %></h4>
 		<div class='post-content'>
-			<%= truncate post.content, :length => 1000, :separator => ' ' %>
+			<%= truncate post.content, :length => 300, :separator => ' ' %>
 		</div>
-		<div class='post-links margin-top-20'>
+		<div class='post-links'>
 			<div class='pull-left'>
-				<%= link_to 'Read more', post , :class => 'btn btn-primary'%>
+				<%= link_to 'Read more', post %>
 			</div>
 			<div class='pull-right'>
-				<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
-				<%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-primary' %>
+				<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-link' %>
+				<%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-link' %>
 			</div>			
 		</div>
 		

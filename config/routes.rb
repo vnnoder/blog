@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
-  resources :posts do
+  root to: 'posts#index'
+	
+	resources :posts do
 		put 'like', on: :member
 		put 'add_comment', on: :member
 	end

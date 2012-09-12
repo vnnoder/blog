@@ -1,4 +1,8 @@
+$('#comment_author').val('');
+$('#comment_content').val('');
+
 var prev_inner = $('div#prev_inner');
 console.log(prev_inner);
 prev_inner.prepend('<%= escape_javascript(render @comment) %>');
+prev_inner.effect("highlight", {}, 3000);
 

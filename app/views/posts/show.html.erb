@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
+  <b>
+		<%= @post.title %>
+	</b>
 </p>
 
-<p>
-  <b>Content:</b>
+<p>  
   <%= @post.content %>
 </p>
 
@@ -23,18 +23,18 @@
 	  <div class="control-group">
 			<label class="control-label" for="comment_author">Author</label>
 			<div class="controls">
-				<%= text_field :comment, :author %>				
+				<%= text_field :comment, :author, id: 'comment_author' %>				
 			</div>
 	  </div>
 	  <div class="control-group">
 			<label class="control-label" for="comment_content">Comment</label>
 			<div class="controls">
-				<%= text_area :comment, :content %>
+				<%= text_area :comment, :content, id: 'comment_content' %>
 			</div>
 	  </div>
 	  <div class="control-group">
 			<div class="controls">      
-				<%= f.submit "Submit", class: 'btn'%>
+				<%= f.submit "Submit", class: 'btn btn-primary'%>
 			</div>
 	  </div>  
   <% end %>
