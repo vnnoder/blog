@@ -1,6 +1,7 @@
 Blog::Application.routes.draw do
-  resources :posts do 
-		put :add_comment, on: :member
+  resources :posts do
+		put 'like', on: :member
+		put 'add_comment', on: :member
 	end
 
   # The priority is based upon order of creation:

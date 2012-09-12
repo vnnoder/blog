@@ -1,17 +1,4 @@
 class PostsController < ApplicationController
-
-	# PUT /posts/1/add_comment
-	def add_comment
-		@post = Post.find(params[:id])
-		#debugger
-		comment = Comment.new(author: params[:comment][:author], content: params[:comment][:content])
-		comment.post = @post
-		comment.save
-		
-		respond_to do |format|
-			format.json {render json: comment.to_json}			
-		end
-	end
 	
   # GET /posts
   # GET /posts.json
@@ -67,6 +54,31 @@ class PostsController < ApplicationController
     end
   end
 
+	# PUT /posts/1/like
+	def like
+		@post = Post.find(params[:id])
+
+    respond_to do |format|      
+			format.js do
+				@post.like += 1
+				@post.save
+			end
+    end
+	end
+	
+	# PUT /posts/1/add_comment
+	
+	def add_comment
+		@post = Post.find(params[:id])
+		respond_to do |format|   
+			format.js do 
+				@comment = Comment.new(author: params[:comment][:author], content: params[:comment][:content])
+				@comment.post = @post
+				@comment.save
+			end
+		end
+	end
+	
   # PUT /posts/1
   # PUT /posts/1.json
   def update
@@ -75,11 +87,12 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :no_content }				
       else
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+			
     end
   end
 
