@@ -107,4 +107,25 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+	
+	def mercury_update		
+		@post = Post.find(params[:id])
+		
+		@post.title = params[:content][:post_title][:value]	if !params[:content][:post_title].nil?
+		@post.content = params[:content][:post_content][:value]	if !params[:content][:post_content].nil?	 
+		@post.save!
+		
+		render text: ""
+		#redirect_to @post, notice: 'Post was successfully updated.' 
+	end
+	
+	def mercury_new
+		title = params[:content][:post_title][:value]	if !params[:content][:post_title].nil?
+		content = params[:content][:post_content][:value]	if !params[:content][:post_content].nil?	 
+		
+		@post = Post.new(title: title, content: content)
+		@post.save!
+		
+		render text: @post.id
+	end
 end

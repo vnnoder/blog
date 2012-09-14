@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="margin-top-20">
+
+    <div id='post_title' data-mercury="full">			
+			<%= raw(@post.title) if !@post.nil? %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content, size: "80x20" %>
+  <div class="margin-top-20">
+	
+		<div id='post_content' data-mercury="full">			
+			<%= raw(@post.content) if !@post.nil? %>
+		</div>
+		
+	
   </div>
-  <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+	<div id='save_url' class="hidden" data-save-url='<%= @post.id.nil? ? mercury_new_posts_path() : mercury_update_post_path(@post) %>' >		
+	<div id='redirect_url' class="hidden" data-redirect-url='<%= @post.id.nil? ? posts_path : post_path(@post) %>' >			
+	</div>
+

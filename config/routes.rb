@@ -1,9 +1,13 @@
 Blog::Application.routes.draw do
+  mount Mercury::Engine => '/'
+
   root to: 'posts#index'
 	
 	resources :posts do
 		put 'like', on: :member
 		put 'add_comment', on: :member
+		post 'mercury_update', on: :member
+		post 'mercury_new', on: :collection
 	end
 
   # The priority is based upon order of creation:

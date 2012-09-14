@@ -60,6 +60,16 @@ div.controls input[type=text] , div.controls textarea{
 	clear: both;
 }
 
+.hidden {
+	display: none;
+}
+
+#post_title {
+	font-size: 200%;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
 #footer{
 	color: #AAA;
 	font-size: 0.7em;
